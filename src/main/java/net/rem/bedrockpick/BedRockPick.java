@@ -27,23 +27,26 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.rem.bedrockpick.item.BedrockPickItem;
+
+import net.rem.bedrockpick.item.ModToolsTiers;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod(BedRockPick.MODID)
+@Mod(BedRockPick.MOD_ID)
 public class BedRockPick {
 
     // Define mod id in a common place for everything to reference
-    public static final String MODID = "bedrockpick";
+    public static final String MOD_ID = "bedrockpick";
 
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
     // Item registry
     public static final DeferredRegister<Item> ITEMS =
-            DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
+            DeferredRegister.create(ForgeRegistries.ITEMS, MOD_ID);
+
     public static final RegistryObject<Item> BEDROCK_PICK = ITEMS.register("bedrock_pick",
-            () -> new BedrockPickItem(Tiers.DIAMOND, new Item.Properties()));
+            () -> new BedrockPickItem(ModToolsTiers.BEDROCK_PICK, new Item.Properties()));
 
 
     public BedRockPick() {
@@ -107,7 +110,7 @@ public class BedRockPick {
 
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
 
         @SubscribeEvent
