@@ -17,7 +17,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraft.world.item.Tiers;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
@@ -27,6 +26,7 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.rem.bedrockpick.item.BedrockPickItem;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -43,7 +43,7 @@ public class BedRockPick {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
     public static final RegistryObject<Item> BEDROCK_PICK = ITEMS.register("bedrock_pick",
-            () -> new net.rem.bedrockpick.item.BedrockPickaxeItem(Tiers.DIAMOND, new Item.Properties()));
+            () -> new BedrockPickItem(Tiers.DIAMOND, new Item.Properties()));
 
 
     public BedRockPick() {

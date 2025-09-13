@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "S": {
+      "item": "minecraft:diamond"
+    },
+    "A": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "pattern": [
+    "SAS",
+    " #",
+    " #"
+  ],
+  "result": {
+    "item": "bedrockpick:bedrock_pick"
+  },
+  "show_notification": true
+}
