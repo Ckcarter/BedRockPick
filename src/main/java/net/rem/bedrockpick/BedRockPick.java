@@ -100,9 +100,12 @@ public class BedRockPick {
         if (!level.getBlockState(pos).is(Blocks.BEDROCK)) return;
 
         level.destroyBlock(pos, false);
-        level.addFreshEntity(new ItemEntity(level, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, new ItemStack(Blocks.BEDROCK)));
-        stack.hurtAndBreak(1, event.getEntity(),
-                p -> p.broadcastBreakEvent(event.getHand()));
+        level.addFreshEntity(
+                new ItemEntity(
+                        level,
+                        pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,
+                        new ItemStack(Blocks.BEDROCK)));
+        stack.hurtAndBreak(1, event.getEntity(), p -> p.broadcastBreakEvent(event.getHand()));
         event.setCanceled(true);
     }
 
