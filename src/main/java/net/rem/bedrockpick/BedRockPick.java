@@ -16,7 +16,6 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
@@ -28,7 +27,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.rem.bedrockpick.item.BedrockPickItem;
 
-import net.rem.bedrockpick.item.ModToolsTiers;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -46,7 +44,7 @@ public class BedRockPick {
             DeferredRegister.create(ForgeRegistries.ITEMS, MOD_ID);
 
     public static final RegistryObject<Item> BEDROCK_PICK = ITEMS.register("bedrock_pick",
-            () -> new BedrockPickItem(ModToolsTiers.BEDROCK_PICK, new Item.Properties()));
+            () -> new BedrockPickItem(new Item.Properties()));
 
 
     public BedRockPick() {
@@ -102,8 +100,7 @@ public class BedRockPick {
         level.destroyBlock(pos, false);
         level.addFreshEntity(
                 new ItemEntity(
-                        level,
-                        pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,
+                        level,pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,
                         new ItemStack(Blocks.BEDROCK)));
         stack.hurtAndBreak(1, event.getEntity(), p -> p.broadcastBreakEvent(event.getHand()));
         event.setCanceled(true);
